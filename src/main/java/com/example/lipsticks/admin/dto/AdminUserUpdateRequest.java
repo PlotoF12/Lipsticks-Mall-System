@@ -1,0 +1,22 @@
+package com.example.lipsticks.admin.dto;
+
+import jakarta.validation.constraints.Size;
+import lombok.Data;
+
+@Data
+public class AdminUserUpdateRequest {
+
+    private Boolean enabled;
+
+    @Size(max = 16)
+    private String role;
+
+    @Size(max = 16)
+    private String gender;
+
+    @Size(max = 32)
+    private String skinTone;
+
+    @Size(max = 32)
+    private String skinType;
+}

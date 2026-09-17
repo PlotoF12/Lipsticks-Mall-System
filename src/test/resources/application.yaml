@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:lipsticks;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+
+server:
+  port: 8080
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+
+jwt:
+  secret: 0123456789abcdef0123456789abcdef
+  expiration-ms: 86400000
+
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: sk-placeholder
+      base-url: https://api.deepseek.com
+      model-name: deepseek-chat
